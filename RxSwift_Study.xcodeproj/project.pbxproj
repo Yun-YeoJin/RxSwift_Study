@@ -9,21 +9,31 @@
 /* Begin PBXBuildFile section */
 		AE02E482290D83B100CCAE15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E481290D83B100CCAE15 /* AppDelegate.swift */; };
 		AE02E484290D83B100CCAE15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E483290D83B100CCAE15 /* SceneDelegate.swift */; };
-		AE02E486290D83B100CCAE15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E485290D83B100CCAE15 /* ViewController.swift */; };
 		AE02E489290D83B100CCAE15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE02E487290D83B100CCAE15 /* Main.storyboard */; };
 		AE02E48B290D83B200CCAE15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE02E48A290D83B200CCAE15 /* Assets.xcassets */; };
 		AE02E48E290D83B200CCAE15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE02E48C290D83B200CCAE15 /* LaunchScreen.storyboard */; };
+		AE02E498290D877300CCAE15 /* BoxOfficeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E497290D877300CCAE15 /* BoxOfficeViewController.swift */; };
+		AE02E49A290D877D00CCAE15 /* BoxOfficeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E499290D877D00CCAE15 /* BoxOfficeViewModel.swift */; };
+		AE02E49C290D878900CCAE15 /* BoxOfficeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E49B290D878900CCAE15 /* BoxOfficeView.swift */; };
+		AE02E49E290D87A500CCAE15 /* BoxOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E49D290D87A500CCAE15 /* BoxOfficeTableViewCell.swift */; };
+		AE02E4A0290D880500CCAE15 /* BoxOfficeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E49F290D880500CCAE15 /* BoxOfficeModel.swift */; };
+		AE02E4A2290D883C00CCAE15 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E4A1290D883C00CCAE15 /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AE02E47E290D83B100CCAE15 /* RxSwift_Study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxSwift_Study.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE02E481290D83B100CCAE15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE02E483290D83B100CCAE15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE02E485290D83B100CCAE15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AE02E488290D83B100CCAE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE02E48A290D83B200CCAE15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE02E48D290D83B200CCAE15 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE02E48F290D83B200CCAE15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE02E497290D877300CCAE15 /* BoxOfficeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeViewController.swift; sourceTree = "<group>"; };
+		AE02E499290D877D00CCAE15 /* BoxOfficeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeViewModel.swift; sourceTree = "<group>"; };
+		AE02E49B290D878900CCAE15 /* BoxOfficeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeView.swift; sourceTree = "<group>"; };
+		AE02E49D290D87A500CCAE15 /* BoxOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeTableViewCell.swift; sourceTree = "<group>"; };
+		AE02E49F290D880500CCAE15 /* BoxOfficeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeModel.swift; sourceTree = "<group>"; };
+		AE02E4A1290D883C00CCAE15 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +66,60 @@
 		AE02E480290D83B100CCAE15 /* RxSwift_Study */ = {
 			isa = PBXGroup;
 			children = (
+				AE02E4A5290D885E00CCAE15 /* Resource */,
+				AE02E4A4290D884D00CCAE15 /* Application */,
+				AE02E4A3290D884700CCAE15 /* Global */,
+				AE02E496290D875100CCAE15 /* BoxOffice_Example */,
+				AE02E495290D846800CCAE15 /* Github_Example */,
+				AE02E48F290D83B200CCAE15 /* Info.plist */,
+				AE02E4A1290D883C00CCAE15 /* APIService.swift */,
+			);
+			path = RxSwift_Study;
+			sourceTree = "<group>";
+		};
+		AE02E495290D846800CCAE15 /* Github_Example */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Github_Example;
+			sourceTree = "<group>";
+		};
+		AE02E496290D875100CCAE15 /* BoxOffice_Example */ = {
+			isa = PBXGroup;
+			children = (
+				AE02E497290D877300CCAE15 /* BoxOfficeViewController.swift */,
+				AE02E499290D877D00CCAE15 /* BoxOfficeViewModel.swift */,
+				AE02E49B290D878900CCAE15 /* BoxOfficeView.swift */,
+				AE02E49D290D87A500CCAE15 /* BoxOfficeTableViewCell.swift */,
+				AE02E49F290D880500CCAE15 /* BoxOfficeModel.swift */,
+			);
+			path = BoxOffice_Example;
+			sourceTree = "<group>";
+		};
+		AE02E4A3290D884700CCAE15 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Global;
+			sourceTree = "<group>";
+		};
+		AE02E4A4290D884D00CCAE15 /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				AE02E481290D83B100CCAE15 /* AppDelegate.swift */,
 				AE02E483290D83B100CCAE15 /* SceneDelegate.swift */,
-				AE02E485290D83B100CCAE15 /* ViewController.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		AE02E4A5290D885E00CCAE15 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
 				AE02E487290D83B100CCAE15 /* Main.storyboard */,
 				AE02E48A290D83B200CCAE15 /* Assets.xcassets */,
 				AE02E48C290D83B200CCAE15 /* LaunchScreen.storyboard */,
-				AE02E48F290D83B200CCAE15 /* Info.plist */,
 			);
-			path = RxSwift_Study;
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE02E486290D83B100CCAE15 /* ViewController.swift in Sources */,
+				AE02E49C290D878900CCAE15 /* BoxOfficeView.swift in Sources */,
+				AE02E498290D877300CCAE15 /* BoxOfficeViewController.swift in Sources */,
 				AE02E482290D83B100CCAE15 /* AppDelegate.swift in Sources */,
 				AE02E484290D83B100CCAE15 /* SceneDelegate.swift in Sources */,
+				AE02E4A0290D880500CCAE15 /* BoxOfficeModel.swift in Sources */,
+				AE02E49A290D877D00CCAE15 /* BoxOfficeViewModel.swift in Sources */,
+				AE02E4A2290D883C00CCAE15 /* APIService.swift in Sources */,
+				AE02E49E290D87A500CCAE15 /* BoxOfficeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
