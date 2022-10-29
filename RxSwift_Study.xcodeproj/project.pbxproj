@@ -18,6 +18,7 @@
 		AE02E49E290D87A500CCAE15 /* BoxOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E49D290D87A500CCAE15 /* BoxOfficeTableViewCell.swift */; };
 		AE02E4A0290D880500CCAE15 /* BoxOfficeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E49F290D880500CCAE15 /* BoxOfficeModel.swift */; };
 		AE02E4A2290D883C00CCAE15 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE02E4A1290D883C00CCAE15 /* APIService.swift */; };
+		AE02E4A7290D89EE00CCAE15 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = AE02E4A6290D89EE00CCAE15 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		AE02E49D290D87A500CCAE15 /* BoxOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeTableViewCell.swift; sourceTree = "<group>"; };
 		AE02E49F290D880500CCAE15 /* BoxOfficeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeModel.swift; sourceTree = "<group>"; };
 		AE02E4A1290D883C00CCAE15 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		AE02E4A6290D89EE00CCAE15 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 		AE02E475290D83B100CCAE15 = {
 			isa = PBXGroup;
 			children = (
+				AE02E4A6290D89EE00CCAE15 /* .gitignore */,
 				AE02E480290D83B100CCAE15 /* RxSwift_Study */,
 				AE02E47F290D83B100CCAE15 /* Products */,
 			);
@@ -180,6 +183,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE02E4A7290D89EE00CCAE15 /* .gitignore in Resources */,
 				AE02E48E290D83B200CCAE15 /* LaunchScreen.storyboard in Resources */,
 				AE02E48B290D83B200CCAE15 /* Assets.xcassets in Resources */,
 				AE02E489290D83B100CCAE15 /* Main.storyboard in Resources */,
