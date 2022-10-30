@@ -14,18 +14,18 @@ class BoxOfficeColletionViewCell: UICollectionViewCell {
     
     let rankLabel = UILabel().then {
         $0.textColor = .label
-        $0.font = boldSystemFont(ofSize: 15)
+        $0.font = .boldSystemFont(ofSize: 15)
         $0.textAlignment = .center
     }
     
     let titleLabel = UILabel().then {
-        $0.font = systemFont(ofSize: 15)
+        $0.font = .systemFont(ofSize: 15)
         $0.textAlignment = .left
         $0.textColor = .label
     }
     
     let dateLabel = UILabel().then {
-        $0.font = systemFont(ofSize: 12)
+        $0.font = .systemFont(ofSize: 12)
         $0.textAlignment = .left
         $0.textColor = .label
     }
