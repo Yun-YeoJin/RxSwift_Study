@@ -23,6 +23,7 @@ class APIService {
             case .success(let value): completion(value, statusCode, nil)
             case .failure(let error): completion(nil, statusCode, error)
             }
+            //dump(response)
         }
     }
     

@@ -29,6 +29,7 @@
 		AE02E4BF290E9D8A00CCAE15 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AE02E4BE290E9D8A00CCAE15 /* SnapKit */; };
 		AE02E4C2290E9D9800CCAE15 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AE02E4C1290E9D9800CCAE15 /* Alamofire */; };
 		AEF17982290EA609004C7591 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF17981290EA609004C7591 /* EndPoint.swift */; };
+		AEF17984290EC229004C7591 /* BoxOfficeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF17983290EC229004C7591 /* BoxOfficeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		AE02E4B1290D8BB600CCAE15 /* CObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CObservable.swift; sourceTree = "<group>"; };
 		AE02E4B3290E60DA00CCAE15 /* BoxOfficeColletionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeColletionViewCell.swift; sourceTree = "<group>"; };
 		AEF17981290EA609004C7591 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		AEF17983290EC229004C7591 /* BoxOfficeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxOfficeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				AE02E49B290D878900CCAE15 /* BoxOfficeView.swift */,
 				AE02E49F290D880500CCAE15 /* BoxOfficeModel.swift */,
 				AE02E4B3290E60DA00CCAE15 /* BoxOfficeColletionViewCell.swift */,
+				AEF17983290EC229004C7591 /* BoxOfficeTableViewCell.swift */,
 			);
 			path = BoxOffice_Example;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				AE02E4A2290D883C00CCAE15 /* APIService.swift in Sources */,
 				AE02E4AC290D8AEE00CCAE15 /* APIKey.swift in Sources */,
 				AE02E4AE290D8B4100CCAE15 /* UIViewController+Extension.swift in Sources */,
+				AEF17984290EC229004C7591 /* BoxOfficeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

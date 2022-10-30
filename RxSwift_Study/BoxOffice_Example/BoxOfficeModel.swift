@@ -7,17 +7,17 @@
 
 import Foundation
 
-struct BoxOfficeResponse: Codable {
+struct BoxOfficeResponse: Codable, Hashable {
     let boxOfficeResult: BoxOfficeResult
 }
 
-struct BoxOfficeResult: Codable {
+struct BoxOfficeResult: Codable, Hashable {
     let boxofficeType: String
     let showRange: String
     let dailyBoxOfficeList: [DailyBoxOffice]
 }
 
-struct DailyBoxOffice: Codable {
+struct DailyBoxOffice: Codable, Hashable {
     let rank: String
     let movieNm: String
     let openDt: String
