@@ -15,8 +15,8 @@ import Then
 
 class UnsplashViewController: UIViewController {
     
-    let colletionView: UICollectionView = {
-        let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    let tableView: UITableView = {
+        let view = UITableView.init(frame: .zero, style: .insetGrouped)
         return view
     }()
     
@@ -38,8 +38,58 @@ class UnsplashViewController: UIViewController {
         $0.layer.cornerRadius = 10
     }
     
+    let resetButton = UIBarButtonItem(title: "초기화", style: .plain, target: UnsplashViewController.self, action: nil)
+
+    let viewModel = UnsplashViewModel()
+    
+    var disposeBag = DisposeBag()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        viewModel.list
+            .bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: UITableViewCell.self)) { row, element, cell in
+                cell.textLabel?.text = "\(element.photoDescription)"
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.validText
+            .asDriver() //BehaviorRelay와 짝꿍
+            .drive(validationLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        let validation = searchTextField.rx.text
+            .orEmpty
+            .map { $0.count >= 1}
+            .share()
+        
+        validation
+            .bind(to: searchButton.rx.isEnabled, validationLabel.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        validation
+            .bind { [weak self] value in
+                let color: UIColor = value ? .systemMint : .systemGray
+                self?.searchButton.backgroundColor = color
+            }
+            .disposed(by: disposeBag)
+        
+        searchButton.rx.tap
+            .withUnretained(self)
+            .subscribe { vc, _ in
+                vc.viewModel.requestPhoto(query: self.searchTextField.text!)
+            }
+            .disposed(by: disposeBag)
+        
+        resetButton.rx.tap
+            .withUnretained(self)
+            .subscribe { vc, _ in
+                vc.viewModel.resetData()
+            }
+            .disposed(by: disposeBag)
         
         configureUI()
         setConstraints()
@@ -47,9 +97,11 @@ class UnsplashViewController: UIViewController {
     
     func configureUI() {
         
-        [colletionView, searchTextField, validationLabel, searchButton].forEach {
+        [tableView, searchTextField, validationLabel, searchButton].forEach {
             self.view.addSubview($0)
         }
+        navigationItem.title = "이미지 검색하기"
+        navigationItem.leftBarButtonItem = resetButton
         
     }
     
@@ -72,7 +124,7 @@ class UnsplashViewController: UIViewController {
             make.top.equalTo(searchTextField.snp.bottom).offset(0)
         }
         
-        colletionView.snp.makeConstraints { make in
+        tableView.snp.makeConstraints { make in
             make.top.equalTo(validationLabel.snp.bottom).offset(0)
             make.bottom.leading.trailing.equalToSuperview()
         }
