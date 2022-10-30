@@ -12,8 +12,14 @@ import Then
 
 class BoxOfficeView: UIView {
     
-    let collectionView: UICollectionView = {
-        let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
+//    let collectionView: UICollectionView = {
+//        let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout())
+//        return view
+//    }()
+    
+    lazy var tableView: UITableView = {
+        let view = UITableView.init(frame: .zero, style: .insetGrouped)
+        view.register(BoxOfficeTableViewCell.self, forCellReuseIdentifier: BoxOfficeTableViewCell.reuseIdentifier)
         return view
     }()
     
@@ -44,7 +50,7 @@ class BoxOfficeView: UIView {
     
     func configureUI() {
         
-        [collectionView, searchTextField, searchButton].forEach { self.addSubview($0) }
+        [tableView, searchTextField, searchButton].forEach { self.addSubview($0) }
         
         
     }
@@ -63,7 +69,7 @@ class BoxOfficeView: UIView {
             make.leading.equalTo(searchTextField.snp.trailing).offset(8)
         }
         
-        collectionView.snp.makeConstraints { make in
+        tableView.snp.makeConstraints { make in
             make.top.equalTo(searchTextField.snp.bottom).offset(0)
             make.bottom.leading.trailing.equalToSuperview()
         }
