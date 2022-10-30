@@ -7,18 +7,8 @@
 
 import Foundation
 
-struct DailyBoxOffice: Codable {
-    let rank: String
-    let movieNm: String
-    let openDt: String
-    let audiAcc: String
-    
-    enum CodingKeys: String, CodingKey {
-        case rank
-        case movieNm
-        case openDt
-        case audiAcc
-    }
+struct BoxOfficeResponse: Codable {
+    let boxOfficeResult: BoxOfficeResult
 }
 
 struct BoxOfficeResult: Codable {
@@ -27,8 +17,20 @@ struct BoxOfficeResult: Codable {
     let dailyBoxOfficeList: [DailyBoxOffice]
 }
 
-struct BoxOfficeResponse: Codable {
-    let boxOfficeResult: BoxOfficeResult
+struct DailyBoxOffice: Codable {
+    let rank: String
+    let movieNm: String
+    let openDt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case rank
+        case movieNm
+        case openDt
+    }
 }
+
+
+
+
 
 
