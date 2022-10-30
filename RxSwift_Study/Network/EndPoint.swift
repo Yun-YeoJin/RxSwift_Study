@@ -11,4 +11,6 @@ enum EndPoint {
     
     static let boxOfficeURL = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?"
     
+    static let searchPhotoURL = "https://api.unsplash.com/search/photos?query="
+    
 }
