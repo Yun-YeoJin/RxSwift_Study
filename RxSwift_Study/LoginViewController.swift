@@ -43,7 +43,7 @@ final class LoginViewController: UIViewController {
         configureUI()
         setConstraints()
         
-        bind()
+        inputOutputBind()
         
         loginButton.addTarget(self, action: #selector(loginButtonClicked), for: .touchUpInside)
     }
@@ -96,6 +96,38 @@ final class LoginViewController: UIViewController {
         
     }
     
+    private func inputOutputBind() {
+        
+        //MARK: Input, Output
+        //Input: 아이디 입력, 비밀번호 입력
+        let idInput: ControlProperty<String> = idTextField.rx.text.orEmpty
+        let pwInput: ControlProperty<String> = pwTextField.rx.text.orEmpty
+        
+        let idValid = idInput.map(checkEmailValid) //Bool 타입
+        let pwValid = pwInput.map(checkPasswordValid) //Bool 타입
+        
+        //Output: 빨간 View, 로그인 버튼
+        idValid.subscribe { value in
+            self.idValidView.isHidden = value
+        } onError: { error in
+            print(error)
+        } .disposed(by: disposeBag)
+        
+        pwValid.subscribe { value in
+            self.pwValidView.isHidden = value
+        } onError: { error in
+            print(error)
+        } .disposed(by: disposeBag)
+
+        Observable.combineLatest(idValid, pwValid, resultSelector: { $0 && $1 })
+            .subscribe { value in
+                self.loginButton.isEnabled = value
+            } onError: { error in
+                print(error)
+            } .disposed(by: disposeBag)
+        
+    }
+
     
     private func bind() {
         
