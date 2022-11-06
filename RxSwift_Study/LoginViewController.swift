@@ -43,20 +43,20 @@ final class LoginViewController: UIViewController {
         configureUI()
         setConstraints()
         
-        inputOutputBind()
+        viewModelInputOutputBind()
         
         loginButton.addTarget(self, action: #selector(loginButtonClicked), for: .touchUpInside)
     }
     
     @objc func loginButtonClicked() {
-            
-            let alert = UIAlertController(title: "RxSwift 재밌어요!", message: "어렵기는 하지만..", preferredStyle: .alert)
-            let cancel = UIAlertAction(title: "취소", style: .cancel)
-            let ok = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(cancel)
-            alert.addAction(ok)
-            self.present(alert, animated: true)
-            
+        
+        let alert = UIAlertController(title: "RxSwift 재밌어요!", message: "어렵기는 하지만..", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(cancel)
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+        
     }
     
     private func configureUI() {
@@ -96,6 +96,37 @@ final class LoginViewController: UIViewController {
         
     }
     
+    private func viewModelInputOutputBind() {
+        
+        let input = LoginViewModel.Input(idText: idTextField.rx.text.orEmpty, pwText: pwTextField.rx.text.orEmpty, loginTap: loginButton.rx.tap)
+        
+        let output = viewModel.transform(input: input)
+
+        
+        output.idValid
+            .map { $0 == true ? UIColor.systemMint : UIColor.systemRed}
+            .bind(to: self.idValidView.rx.backgroundColor)
+            .disposed(by: disposeBag)
+        
+        output.pwValid
+            .map { $0 == true ? UIColor.systemMint : UIColor.systemRed}
+            .bind(to: self.pwValidView.rx.backgroundColor)
+            .disposed(by: disposeBag)
+        
+        output.isValid
+            .asDriver(onErrorJustReturn: false)
+            .drive(loginButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        output.isValid
+            .map { $0 == true ? UIColor.systemMint : UIColor.opaqueSeparator }
+            .asDriver(onErrorJustReturn: .opaqueSeparator)
+            .drive(loginButton.rx.backgroundColor)
+            .disposed(by: disposeBag)
+        
+    }
+    
+    
     private func inputOutputBind() {
         
         //MARK: Input, Output
@@ -118,7 +149,7 @@ final class LoginViewController: UIViewController {
         } onError: { error in
             print(error)
         } .disposed(by: disposeBag)
-
+        
         Observable.combineLatest(idValid, pwValid, resultSelector: { $0 && $1 })
             .subscribe { value in
                 self.loginButton.isEnabled = value
@@ -127,7 +158,7 @@ final class LoginViewController: UIViewController {
             } .disposed(by: disposeBag)
         
     }
-
+    
     
     private func bind() {
         
@@ -151,14 +182,14 @@ final class LoginViewController: UIViewController {
         Observable.combineLatest(
             idTextField.rx.text.orEmpty.map(checkEmailValid),
             pwTextField.rx.text.orEmpty.map(checkPasswordValid)) { s1, s2 in
-            s1 && s2 //2개의 Stream을 받아서 내려간다.
-        }.subscribe { value in
-            self.loginButton.isEnabled = value
-        }.disposed(by: disposeBag)
+                s1 && s2 //2개의 Stream을 받아서 내려간다.
+            }.subscribe { value in
+                self.loginButton.isEnabled = value
+            }.disposed(by: disposeBag)
         
-            
+        
     }
-     
+    
     private func checkEmailValid(_ email: String) -> Bool {
         return email.contains("@") && email.contains(".")
     }
